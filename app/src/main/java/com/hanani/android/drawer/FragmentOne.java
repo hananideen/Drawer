@@ -22,7 +22,7 @@ public class FragmentOne extends Fragment {
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         // setup toolbar if found in layout
         if(toolbar!=null){
-            toolbar.setTitle("Camera");
+            toolbar.setTitle(Constant.FRAGMENT_ONE);
             // link toolbar to drawer
             try {((MainActivity) getActivity()).linkToolbar(toolbar);
             } catch (Exception e) { e.printStackTrace(); }

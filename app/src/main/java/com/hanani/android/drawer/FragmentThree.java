@@ -23,7 +23,7 @@ public class FragmentThree extends Fragment {
         Toolbar toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
         // setup toolbar if found in layout
         if(toolbar!=null){
-            toolbar.setTitle("Slideshow");
+            toolbar.setTitle(Constant.FRAGMENT_THREE);
             // link toolbar to drawer
             try {((MainActivity) getActivity()).linkToolbar(toolbar);
             } catch (Exception e) { e.printStackTrace(); }
@@ -33,7 +33,7 @@ public class FragmentThree extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Floating Action Button", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });

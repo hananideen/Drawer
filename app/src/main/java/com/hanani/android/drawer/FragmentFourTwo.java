@@ -22,7 +22,7 @@ public class FragmentFourTwo extends Fragment {
     public static FragmentFourTwo newInstance(int sectionNumber) {
         FragmentFourTwo fragment = new FragmentFourTwo();
         Bundle args = new Bundle();
-        args.putInt(FragmentFour.ARG_SECTION_NUMBER, sectionNumber);
+        args.putInt(Constant.ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
         return fragment;
     }

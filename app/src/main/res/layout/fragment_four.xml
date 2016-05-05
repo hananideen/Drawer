@@ -23,7 +23,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <TextView
-                android:id="@+id/fragment_base_textview_title"
+                android:id="@+id/textview_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -32,7 +32,6 @@
                 android:layout_marginBottom="70dp"
                 android:textColor="#FFFFFF"
                 android:textSize="32sp"
-                android:text="Tools"
                 android:visibility="visible"/>
 
             <android.support.v7.widget.Toolbar

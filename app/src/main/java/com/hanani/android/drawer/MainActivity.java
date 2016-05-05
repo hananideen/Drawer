@@ -1,7 +1,6 @@
 package com.hanani.android.drawer;
 
 import android.os.Bundle;
-import android.support.annotation.FloatRange;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -19,6 +18,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
+    private FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,11 +27,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Floating Action Button", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FragmentTransaction fragment = getSupportFragmentManager().beginTransaction();
         fragment.replace(R.id.container, new FragmentOne());
         fragment.commit();
-
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -84,12 +84,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.nav_camera) {
             setContentFragment(new FragmentOne());
+            fab.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_gallery) {
             setContentFragment(new FragmentTwo());
+            fab.setVisibility(View.VISIBLE);
         } else if (id == R.id.nav_slideshow) {
             setContentFragment(new FragmentThree());
+            fab.setVisibility(View.GONE);
         } else if (id == R.id.nav_manage) {
             setContentFragment(new FragmentFour());
+            fab.setVisibility(View.GONE);
         } else if (id == R.id.nav_share) {
             Snackbar.make(drawer, "Share!", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();

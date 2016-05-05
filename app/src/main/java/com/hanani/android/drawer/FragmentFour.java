@@ -12,13 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 /**
  * Created by Hanani on 5/5/2016.
  */
 public class FragmentFour extends Fragment {
-
-    protected static final String ARG_SECTION_NUMBER = "section_number";
 
     public FragmentFour() {}
 
@@ -45,11 +44,14 @@ public class FragmentFour extends Fragment {
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
 
+        TextView tvTitle = (TextView) rootView.findViewById(R.id.textview_title);
+        tvTitle.setText(Constant.FRAGMENT_FOUR);
+
         FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Floating Action Button", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
