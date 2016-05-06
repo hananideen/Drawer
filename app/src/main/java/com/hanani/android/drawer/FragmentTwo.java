@@ -58,7 +58,7 @@ public class FragmentTwo extends Fragment {
 
             switch (position){
                 case 0:
-                    return FragmentTwoOne.newInstance(position + 1);
+                    return FragmentTwoOne.newInstance(position);
                 case 1:
                     return FragmentTwoTwo.newInstance(position);
             }

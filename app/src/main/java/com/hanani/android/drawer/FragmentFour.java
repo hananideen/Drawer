@@ -38,11 +38,43 @@ public class FragmentFour extends Fragment {
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getActivity().getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
-        ViewPager mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
-        mViewPager.setAdapter(mSectionsPagerAdapter);
+        final ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
+        viewPager.setAdapter(mSectionsPagerAdapter);
+//        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+//            @Override
+//            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+//
+//            }
+//
+//            @Override
+//            public void onPageSelected(int position) {
+//
+//            }
+//
+//            @Override
+//            public void onPageScrollStateChanged(int state) {
+//
+//            }
+//        });
 
         TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
         TextView tvTitle = (TextView) rootView.findViewById(R.id.textview_title);
         tvTitle.setText(Constant.FRAGMENT_FOUR);
@@ -72,11 +104,12 @@ public class FragmentFour extends Fragment {
 
             switch (position){
                 case 0:
-                    return FragmentFourOne.newInstance(position + 1);
+                    return FragmentFourOne.newInstance(position);
                 case 1:
                     return FragmentFourTwo.newInstance(position);
+                default:
+                    return FragmentFourOne.newInstance(position);
             }
-            return null;
         }
 
         @Override
@@ -96,4 +129,19 @@ public class FragmentFour extends Fragment {
             return null;
         }
     }
+
+//    @Override
+//    public void onPause() {
+//        super.onPause();
+//        getActivity().getSupportFragmentManager().findFragmentByTag(Constant.FRAGMENT_FOUR)
+//                .setRetainInstance(true);
+//    }
+//
+//    @Override
+//    public void onResume() {
+//        super.onResume();
+//        getActivity().getSupportFragmentManager().findFragmentByTag(Constant.FRAGMENT_FOUR)
+//                .getRetainInstance();
+//
+//    }
 }
